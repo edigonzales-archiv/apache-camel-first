@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'org.apache.camel:camel-core:2.23.1'
+    
+    testImplementation 'junit:junit:4.12'
+}
+
+mainClassName = 'apache.camel.first.App'
+
+run {
+    args = ["--xml", "src/test/data/bl/CH567107399166_geometry_images.xml", "--out", "/Users/stefan/tmp/", "--lang", "fr"]
+}
