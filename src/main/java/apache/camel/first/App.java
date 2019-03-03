@@ -28,7 +28,5 @@ public class App {
             camelException.printStackTrace();
             log.error("Exception trying to copy files - {0}", camelException.toString());
         }
-
-        System.out.println("Hallo Welt.");
     }
 }
