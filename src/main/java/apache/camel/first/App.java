@@ -16,11 +16,13 @@ public class App {
             camelContext.addRoutes(new RouteBuilder() {
                 @Override
                 public void configure() throws Exception {
-                    from("file:///Users/stefan/tmp/data/?fileName=ch_254900.itf&noop=true").to("file:///Users/stefan/Downloads/output/");
+//                    from("file:///Users/stefan/tmp/data/?fileName=ch_254900.itf&noop=true").to("file:///Users/stefan/Downloads/output/");
+                    from("ftp://YYYYYYY@ftp.infogrips.ch/\\dm01avso24lv95_2\\shp\\?password=XXXXXX&autoCreate=false&noop=true&stepwise=false&separator=Windows&passiveMode=true&binary=true")
+                    .to("file:///Users/stefan/Downloads/output/");
                 }
             });
             camelContext.start();
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             camelContext.stop();
         } catch (Exception camelException) {
             camelException.printStackTrace();
