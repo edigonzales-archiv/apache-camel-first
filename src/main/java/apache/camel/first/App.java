@@ -26,14 +26,14 @@ public class App {
 
         SimpleRegistry registry = new SimpleRegistry();
         registry.put("repo", repo);
-        
+                
         final CamelContext camelContext = new DefaultCamelContext(registry);
         try {
             camelContext.addRoutes(new RouteBuilder() {
                 @Override
                 public void configure() throws Exception {
 //                    from("file:///Users/stefan/tmp/data/?fileName=ch_254900.itf&noop=true").to("file:///Users/stefan/Downloads/output/");
-                    from("ftp://xxxx@ftp.infogrips.ch/\\dm01avso24lv95_2\\shp\\?password=yyyyy&autoCreate=false&noop=true&stepwise=false&separator=Windows&passiveMode=true&binary=true&delay=50000&initialDelay=30000&idempotentRepository=#repo&idempotentKey=${file:name}-${file:size}")
+                    from("ftp://{{env:ftpUserInfogrips}}@ftp.infogrips.ch/\\dm01avso24lv95_2\\shp\\?password={{env:ftpPwdInfogrips}}&autoCreate=false&noop=true&stepwise=false&separator=Windows&passiveMode=true&binary=true&delay=50000&initialDelay=10000&idempotentRepository=#repo&idempotentKey=${file:name}-${file:size}")
                     .to("file:///Users/stefan/Downloads/output/");
                 }
             });

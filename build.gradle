@@ -19,5 +19,5 @@ dependencies {
 mainClassName = 'apache.camel.first.App'
 
 run {
-    args = ["-Dorg.slf4j.simpleLogger.defaultLogLevel", "trace", "--xml", "src/test/data/bl/CH567107399166_geometry_images.xml", "--out", "/Users/stefan/tmp/", "--lang", "fr"]
+    args = ["--xml", "src/test/data/bl/CH567107399166_geometry_images.xml", "--out", "/Users/stefan/tmp/", "--lang", "fr"]
 }
